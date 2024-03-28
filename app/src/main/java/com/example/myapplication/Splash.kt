@@ -16,15 +16,21 @@ class Splash : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.logo.alpha = 0.5f
-        binding.logo.animate().setDuration(3000).alpha(1f).withEndAction{
-            Toast.makeText(this, "Oke", Toast.LENGTH_SHORT).show()
-            val intentSplash = Intent(this, Login::class.java)
-            startActivity(intentSplash)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            finish()
-        }
+        tampilLogo(binding)
+    }
 
+    private fun tampilLogo(binding: ActivitySplashBinding) {
+        binding.logo.alpha = 0f
+        binding.logo.animate().setDuration(3000).alpha(1f).withEndAction{
+            setelah3Detik()
+        }
+    }
+
+    private fun setelah3Detik() {
+        val intentSplash = Intent(this, Login::class.java)
+        startActivity(intentSplash)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
 
 }
