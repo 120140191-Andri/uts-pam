@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Registrasi">
 
     <LinearLayout
-        android:id="@+id/loginLayout"
+        android:id="@+id/regisLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="30dp"
@@ -20,7 +20,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Registrasi"
             android:textAlignment="center"
             android:textSize="34sp"
             tools:text="Login" />
@@ -53,6 +53,30 @@
             android:minHeight="48dp"
             android:text="@string/Password" />
 
+        <EditText
+            android:id="@+id/inputUsernameGit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Username Github" />
+
+        <EditText
+            android:id="@+id/inputNIM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="NIM" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
@@ -61,14 +85,15 @@
             android:text="Masuk" />
 
         <TextView
-            android:id="@+id/keRegis"
+            android:id="@+id/keLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="Belum Punya Akun? Daftar Disini"
+            android:text="Sudah Punya Akun? Login Disini"
             android:textAlignment="center"
             android:textColor="#3F51B5"
             android:textSize="14dp" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
