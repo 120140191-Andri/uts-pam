@@ -21,15 +21,6 @@ class Splash : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        auth = FirebaseAuth.getInstance()
-
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            Log.i("TAG", currentUser.uid)
-        }else{
-            Log.i("TAG", "kosong")
-        }
-
         tampilLogo(binding)
     }
 
@@ -41,10 +32,28 @@ class Splash : AppCompatActivity() {
     }
 
     private fun setelah3Detik() {
-        val intentSplash = Intent(this, Login::class.java)
-        startActivity(intentSplash)
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        finish()
+
+        if (cekLogin()){
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
+        }else{
+            val intentDash = Intent(this, Login::class.java)
+            startActivity(intentDash)
+        }
+
+    }
+
+    private fun cekLogin(): Boolean {
+        auth = FirebaseAuth.getInstance()
+
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            Log.i("TAG", currentUser.uid)
+            return true
+        }else{
+            Log.i("TAG", "kosong")
+            return false
+        }
     }
 
 }
