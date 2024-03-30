@@ -39,7 +39,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="Email" />
+            android:hint="Email" />
 
         <EditText
             android:id="@+id/inputPassword"
@@ -51,7 +51,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/Password" />
+            android:hint="@string/Password" />
 
         <EditText
             android:id="@+id/inputUsernameGit"
@@ -63,7 +63,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="Username Github" />
+            android:hint="Username Github" />
 
         <EditText
             android:id="@+id/inputNIM"
@@ -73,16 +73,16 @@
             android:layout_marginBottom="10dp"
             android:autofillHints=""
             android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="NIM" />
+            android:hint="NIM"
+            android:inputType="number"
+            android:minHeight="48dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/registrasiBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#44A433"
-            android:text="Masuk" />
+            android:text="Registrasi" />
 
         <TextView
             android:id="@+id/keLogin"
