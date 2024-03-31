@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityLoginBinding
+import com.example.myapplication.databinding.ActivityRegistrasiBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -37,6 +38,7 @@ class Login : AppCompatActivity() {
             val password = binding.inputPassword.text.toString()
 
             if(email != "" && password != ""){
+                ubahStateLoading(true)
                 authLogin(email, password)
             }else{
                 Toast.makeText(this, "Email dan Password Field Wajib Diisi", Toast.LENGTH_SHORT).show()
@@ -44,6 +46,16 @@ class Login : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun ubahStateLoading(st: Boolean){
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+
+        if (st){
+            binding.loginBtn.text = "Loading..."
+        }else{
+            binding.loginBtn.text = "Masuk"
+        }
     }
 
     private fun pindahDashboard(){
@@ -59,7 +71,7 @@ class Login : AppCompatActivity() {
     private fun authLogin(email: String, password: String){
         Toast.makeText(
             this,
-            "Masuk.",
+            "Loading....",
             Toast.LENGTH_SHORT,
         ).show()
 
@@ -73,6 +85,7 @@ class Login : AppCompatActivity() {
                     ).show()
 
                     pindahDashboard()
+                    ubahStateLoading(false)
                 } else {
                     Toast.makeText(
                         this,
@@ -80,6 +93,7 @@ class Login : AppCompatActivity() {
                         Toast.LENGTH_SHORT,
                     ).show()
                     recreate()
+                    ubahStateLoading(false)
                 }
             }
     }

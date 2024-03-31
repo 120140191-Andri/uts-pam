@@ -26,55 +26,20 @@ class Dashboard : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            Log.i("TAG", currentUser.uid)
-
-            val db = FirebaseFirestore.getInstance()
-
-            db.collection("users")
-                .document(currentUser.uid)
-                .get()
-                .addOnSuccessListener { document ->
-                    if (document != null) {
-                        // Dokumen ditemukan, Anda dapat mengakses data di sini
-                        val data = document.data
-                        // Lakukan apa pun yang perlu Anda lakukan dengan data di sini
-                        println("Data: $data")
-
-                        binding.textView3.text = document.getString("email")
-                        binding.textView4.text = document.getString("nim")
-                        binding.textView5.text = document.getString("usernamegit")
-
-                    } else {
-                        // Dokumen tidak ditemukan
-                        println("Document not found")
-                    }
-                }
-                .addOnFailureListener { exception ->
-                    // Kegagalan saat mengambil data
-                    println("Error getting documents: $exception")
-                    pindahKeLogin()
-                }
-
-        }else{
-            pindahKeLogin()
-        }
-
-        binding.button.setOnClickListener {
-            logout()
+        binding.profilBtn.setOnClickListener {
+            pindahProfil()
         }
 
     }
 
-    private fun pindahKeLogin(){
-        val intentLogin = Intent(this, Login::class.java)
-        startActivity(intentLogin)
+    private fun pindahProfil(){
+        val intentProfil = Intent(this, Profil::class.java)
+        startActivity(intentProfil)
     }
 
-    private fun logout(){
+    private  fun logout(){
         auth.signOut()
-        pindahKeLogin()
+        pindahProfil()
     }
 
 }
