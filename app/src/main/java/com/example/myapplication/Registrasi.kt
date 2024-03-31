@@ -29,12 +29,14 @@ class Registrasi : AppCompatActivity() {
         }
 
         binding.registrasiBtn.setOnClickListener {
+            val nama = binding.inputNama.text.toString()
             val email = binding.inputEmail.text.toString()
             val password = binding.inputPassword.text.toString()
             val usernamegit = binding.inputUsernameGit.text.toString()
             val nim = binding.inputNIM.text.toString()
 
             val inputs = mapOf(
+                "nama" to nama,
                 "email" to email,
                 "password" to password,
                 "usernamegit" to usernamegit,
@@ -94,6 +96,7 @@ class Registrasi : AppCompatActivity() {
 
         val user = auth.currentUser
         val userData = hashMapOf(
+            "nama" to inputs["nama"],
             "email" to inputs["email"],
             "usernamegit" to inputs["usernamegit"],
             "nim" to inputs["nim"]

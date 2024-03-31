@@ -23,6 +23,7 @@ class UserAdapter(private var userList: List<User>) : RecyclerView.Adapter<UserA
     {
         val user = userList[position]
         holder.bind(user)
+
     }
 
     override fun getItemCount(): Int {
